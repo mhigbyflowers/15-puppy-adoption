@@ -4,6 +4,38 @@
 $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
 $orange : #ff9100;
 $grey : #7a7a7a;
+$lightgrey: #e7e2e2;
 @import 'font-awesome';
 @import 'box-sizing';
 @import 'top-nav+form';
+
+.card-container{
+  // background: red;
+
+}
+.card-contianer__inner{
+  max-width: 40rem;
+  margin: auto;
+
+}
+.card{
+  padding: 1rem;
+  margin-top: 1rem;
+  box-shadow: 3px 3px 11px 0px rgba(0,0,0,0.43);
+  display: flex;
+  background: $lightgrey;
+
+  &__info{
+    padding: 1rem;
+    width: 100%;
+  }
+}
+
+.output{
+    border-bottom: .1rem black solid;
+
+}
+.lable{
+  font-size: .6rem;
+
+}
