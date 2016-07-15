@@ -1,23 +1,70 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>15 Puppy Adoption</title>
   <link rel="stylesheet" href="/app.css">
 </head>
+
 <body>
 
-<div class="top-container">
   <div class="top-container">
-    <nav class="top-nav">
-      <h1 class="top-nav__title">Puppies!</h1>
-    </nav>
+    <div class="top-container">
+      <nav class="top-nav">
+        <div class="top-nav__top">
+          <h1 class="top-nav__top-title">Puppies!</h1>
+          <div class="top-nav__top-btn"> + </div>
+        </div>
+        <div class="top-nav__form">
+          <h2 class="top-nav__form-instructions">Add a new puppy</h2>
+          <input type="text" class="top-nav__form-name" placeholder="Name">
+          <input type="text" class="top-nav__form-age" placeholder="Age">
+          <input type="text" class="top-nav__form-url" placeholder="Photo URL">
+          <input type="text" class="top-nav__form-profile" placeholder="Profile">
+          <button class="top-nav__form-btn">Save</button>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="contianer__inner">
+          <div class="card">
+            <img src="http://placehold.it/300" alt="" class="card__pic">
+            <div class="card__info">
+              <div class="card__info-name">
+                <p>Name</p>
+              </div>
+              <div class="card__info-name__output">
+                <p>blank</p>
+              </div>
+              <div class="card__info-age">
+                <p>age</p>
+              </div>
+              <div class="card__info-age__output">
+                <p>blank</p>
+              </div>
+              <div class="card__info-url">
+                <p>Photo URL</p>
+              </div>
+              <div class="card__info-url">
+                <p>blank</p>
+              </div>
+              <div class="card__info-profile">
+                <p>Profile</p>
+              </div>
+              <div class="card__info-profile">
+                <p>blank</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
   <script src="/vendor.js" charset="utf-8"></script>
   <script src="/app.js" charset="utf-8"></script>
 
   <script type="text/javascript">
   </script>
 </body>
+
 </html>
