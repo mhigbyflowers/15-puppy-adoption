@@ -9,6 +9,16 @@ $lightgrey: #e7e2e2;
 @import 'box-sizing';
 @import 'top-nav+form';
 
+::selection {
+    color: limegreen;
+    background: black;
+    font-size: 100px;
+    outline: dashed yellow 10px;
+}
+li{
+list-style: none;
+margin: 0;
+}
 .card-container{
   // background: red;
 
@@ -20,22 +30,26 @@ $lightgrey: #e7e2e2;
 }
 .card{
   padding: 1rem;
-  margin-top: 1rem;
+  margin: 1rem 0;
   box-shadow: 3px 3px 11px 0px rgba(0,0,0,0.43);
   display: flex;
-  background: $lightgrey;
 
-  &__info{
-    padding: 1rem;
-    width: 100%;
+  background: $lightgrey;
+&__info{
+  padding:1rem;
+}
+  &__info-item{
+width: 100%;
+background:transparent;
+border: none;
+border-bottom: .1rem black solid;
+font-size: 1.5rem;
+padding:1rem 0;
+color:red;
   }
 }
 
 .output{
     border-bottom: .1rem black solid;
-
-}
-.lable{
-  font-size: .6rem;
 
 }

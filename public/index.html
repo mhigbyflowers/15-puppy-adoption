@@ -31,46 +31,39 @@
       </div>
         </div>
       </nav>
+        <div class="main-app">
       <div class="card-container">
         <div class="card-contianer__inner">
           <div class="card">
             <div class="card__pic-frame">
             <img src="http://placehold.it/300" alt="" class="card__pic">
         </div>
-            <div class="card__info">
-              <div class="card__info-name ">
-                <p class = 'lable'>Name</p>
-              </div>
-              <div class="card__info-name__output output">
-                <p>blank</p>
-              </div>
-              <div class="card__info-age ">
-                <p class = 'lable'>age</p>
-              </div>
-              <div class="card__info-age__output output">
-                <p>blank</p>
-              </div>
-              <div class="card__info-url ">
-                <p class = 'lable'>Photo URL</p>
-              </div>
-              <div class="card__info-url__output output">
-                <p>blank</p>
-              </div>
-              <div class="card__info-profile ">
-                <p class = 'lable'>Profile</p>
-              </div>
-              <div class="card__info-profile__output output">
-                <p>blank</p>
-              </div>
+        <div class="card__info">
+            <input class="card__info-item name"   placeholder="name" type="text">
+            <input class="card__info-item age" placeholder="age" type="text" >
+            <input class="card__info-item url" placeholder="Photo URL" type="text" >
+            <input class="card__info-item profile" placeholder="Profile" type="text" >
             </div>
           </div>
         </div>
 
   </div>
+  </div>
   <script src="/vendor.js" charset="utf-8"></script>
   <script src="/app.js" charset="utf-8"></script>
 
   <script type="text/javascript">
+
+const mainEl = document.querySelector('.main-app');
+  const App = require ('application');
+  const  appy = new App(mainEl);
+  appy.start();
+  appy.render();
+
+
+
+
+
   </script>
 </body>
 

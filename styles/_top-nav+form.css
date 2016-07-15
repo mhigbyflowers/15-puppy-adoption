@@ -24,6 +24,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     &-title{
 
     }
@@ -34,6 +35,7 @@ body{
 
 
   &__form {
+
 color:white;
     display: flex;
     flex-direction: column;
