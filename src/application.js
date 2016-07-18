@@ -4,10 +4,13 @@ export default class ApplicationView {
     this.el = el;
 
     this.data = [];
+    this.el.querySelector('.top-nav__top-btn').addEventListener('click',()=>{
+    this.el.querySelector('.form-container').classList.toggle('form-container--active');
+    })
 
   }
   render(data) {
-    this.el.innerHTML = " ";
+    this.el.querySelector('.main-app').innerHTML = " ";
     const components = this.data.map((item) => new PuppyView(item));
 
     components.forEach((card) => {
@@ -26,9 +29,5 @@ export default class ApplicationView {
 
       });
   }
-  add() {
 
-
-
-  }
 }

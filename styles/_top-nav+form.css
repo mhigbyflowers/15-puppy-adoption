@@ -11,6 +11,14 @@ body{
 }
 .form-container{
   background: $grey;
+  height: 0;
+  overflow: hidden;
+  padding: 0 1rem;
+  transition: all .5s;
+  &--active{
+    height: 24rem;
+      transition: all 1s;
+  }
   &__inner{
     max-width: 60rem;
     margin: auto;

@@ -9,15 +9,17 @@ export default class PuppyView {
     <div class="card-contianer__inner">
       <div class="card">
         <div class="card__pic-frame">
-        <img src="${this.currentPup.photoUrl}" alt="" class="card__pic">
+        <img src="" alt="" class="card__pic">
     </div>
     <div class="card__info">
-        <input class="card__info-item name" value="${this.currentPup.name}"  placeholder="name" type="text">
-        <input class="card__info-item age" value="${this.currentPup.age}" placeholder="age" type="text" >
-        <input class="card__info-item url" value="${this.currentPup.photoUrl}" placeholder="Photo URL" type="text" >
-        <input class="card__info-item profile" value="${this.currentPup.profile}"  placeholder="Profile" type="text" >
+        <input class="card__info-item name"   placeholder="name" type="text">
+        <input class="card__info-item age"  placeholder="age" type="text" >
+        <input class="card__info-item url"  placeholder="Photo URL" type="text" >
+        <input class="card__info-item profile"   placeholder="Profile" type="text" >
         </div>
       </div>
+      <button class="update-btn">update</button>
+      <button class="delete-btn">delete</button>
     </div>
 
 </div>`;
@@ -27,11 +29,16 @@ export default class PuppyView {
   render() {
 
     // console.log(this.currentPup);
-    console.log('am I rendering?');
-    console.log(this.currentPup);
+    // console.log('am I rendering?');
+    // console.log(this.currentPup);
 
+this.element.querySelector('.name').value= this.currentPup.name;
+this.element.querySelector('.age').value= this.currentPup.age;
+this.element.querySelector('.url').value= this.currentPup.photoUrl;
+this.element.querySelector('.card__pic').src = this.currentPup.photoUrl;
+this.element.querySelector('.profile').value= this.currentPup.profile;
 
     // this.el.appendChild(this.element);
-    // this.el.querySelector('.name').value = 'hello@!@@'
+
   }
 }
