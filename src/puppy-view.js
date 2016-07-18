@@ -16,10 +16,12 @@ export default class PuppyView {
         <input class="card__info-item age"  placeholder="age" type="text" >
         <input class="card__info-item url"  placeholder="Photo URL" type="text" >
         <input class="card__info-item profile"   placeholder="Profile" type="text" >
+<div class = "btn-container">
+        <button class="update-btn btn">update</button>
+        <button class="delete-btn btn">delete</button>
+</div>
         </div>
       </div>
-      <button class="update-btn">update</button>
-      <button class="delete-btn">delete</button>
     </div>
 
 </div>`;

@@ -1,4 +1,5 @@
 import PuppyView from 'puppy-view';
+import CreateFormView from 'create-form';
 export default class ApplicationView {
   constructor(el) {
     this.el = el;
@@ -21,7 +22,8 @@ export default class ApplicationView {
 
   }
   start() {
-    return fetch(`http://tiny-tn.herokuapp.com/collections/ryan-puppy`)
+const formView = new CreateFormView(this.el);
+    return fetch(`http://tiny-tn.herokuapp.com/collections/mhf-puppy`)
       .then((res) => res.json())
       .then((data) => {
         this.data = data;

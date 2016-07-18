@@ -25,6 +25,7 @@ margin: 0;
 
 }
 .card-contianer__inner{
+  padding: 0 1rem;
   max-width: 60rem;
   margin: auto;
 
@@ -52,5 +53,20 @@ color:red;
 
 .output{
     border-bottom: .1rem black solid;
+
+}
+.btn-container{
+  display: flex;
+  justify-content: space-between;
+}
+.btn{
+  background: $orange;
+  border: none;
+  font-size: 1.2rem;
+  margin-top:1rem;
+  border-radius: .3rem;
+  color:white;
+  flex-grow: 1;
+      margin: 1rem;
 
 }

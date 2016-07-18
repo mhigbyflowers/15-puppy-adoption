@@ -4,6 +4,7 @@ body{
 .top-container{
   background: $orange;
   &__inner{
+      padding: 0 1rem;
     max-width: 60rem;
     margin: auto;
 
@@ -13,13 +14,13 @@ body{
   background: $grey;
   height: 0;
   overflow: hidden;
-  padding: 0 1rem;
   transition: all .5s;
   &--active{
     height: 24rem;
-      transition: all 1s;
+    transition: all 1s;
   }
   &__inner{
+    padding: 0 1rem;
     max-width: 60rem;
     margin: auto;
 
@@ -63,5 +64,6 @@ input{
     margin:1rem 0;
     border-radius: .3rem;
     color:white;
+
   }
 }
