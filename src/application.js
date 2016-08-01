@@ -7,12 +7,12 @@ export default class ApplicationView {
     this.data = [];
     this.el.querySelector('.top-nav__top-btn').addEventListener('click',()=>{
     this.el.querySelector('.form-container').classList.toggle('form-container--active');
-    })
+  });
 
   }
   render(data) {
     this.el.querySelector('.main-app').innerHTML = " ";
-    const components = this.data.map((item) => new PuppyView(item));
+    const components = this.data.map((item) => new PuppyView(item,this));
 
     components.forEach((card) => {
       this.el.appendChild(card.element);
@@ -20,8 +20,12 @@ export default class ApplicationView {
     })
 
 
+
   }
-  start() {
+
+
+
+start() {
 const formView = new CreateFormView(this.el);
     return fetch(`http://tiny-tn.herokuapp.com/collections/mhf-puppy`)
       .then((res) => res.json())
@@ -31,5 +35,15 @@ const formView = new CreateFormView(this.el);
 
       });
   }
+
+removePuppy(puppy){
+  this.data = this.data.filter((x) => x !== puppy);
+
+
+     this.render();
+}
+
+
+
 
 }

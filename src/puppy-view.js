@@ -1,10 +1,19 @@
+'use strict'
 export default class PuppyView {
-  constructor(currentPup, el) {
-    this.currentPup = currentPup;
+  constructor(currentPup, app) {
 
-    this.el = document.querySelector('.main-app');
+    this.currentPup = currentPup;
+this.app=app;
     this.element = document.createElement('li');
+
+    this.setupElement();
+    this.deletePuppy();
+
+  }
+
+  setupElement(){
     this.element.classList = ('puppy-list__item');
+
     this.element.innerHTML = `<div class="card-container">
     <div class="card-contianer__inner">
       <div class="card">
@@ -16,10 +25,10 @@ export default class PuppyView {
         <input class="card__info-item age"  placeholder="age" type="text" >
         <input class="card__info-item url"  placeholder="Photo URL" type="text" >
         <input class="card__info-item profile"   placeholder="Profile" type="text" >
-<div class = "btn-container">
+    <div class = "btn-container">
         <button class="update-btn btn">update</button>
         <button class="delete-btn btn">delete</button>
-</div>
+    </div>
         </div>
       </div>
     </div>
@@ -30,17 +39,31 @@ export default class PuppyView {
 
   render() {
 
-    // console.log(this.currentPup);
-    // console.log('am I rendering?');
-    // console.log(this.currentPup);
+
 
 this.element.querySelector('.name').value= this.currentPup.name;
 this.element.querySelector('.age').value= this.currentPup.age;
-this.element.querySelector('.url').value= this.currentPup.photoUrl;
-this.element.querySelector('.card__pic').src = this.currentPup.photoUrl;
+this.element.querySelector('.url').value= this.currentPup.url;
+this.element.querySelector('.card__pic').src = this.currentPup.url;
 this.element.querySelector('.profile').value= this.currentPup.profile;
 
     // this.el.appendChild(this.element);
 
   }
+
+    deletePuppy() {
+      this.element.querySelector(`.delete-btn`).addEventListener(`click`, (ev) => {
+        ev.preventDefault();
+      console.log(this.app);
+        fetch(`http://tiny-tn.herokuapp.com/collections/mhf-puppies/${this.currentPup._id}`, {
+          method: `DELETE`,
+          body: JSON.stringify(this.element),
+        }).then((res) => res.json())
+      .then(() => {
+        alert(`Item deleted`);
+        this.app.removePuppy(this.currentPup._id);
+      });
+      });
+    }
+
 }
