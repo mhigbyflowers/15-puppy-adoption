@@ -8,6 +8,8 @@ this.app=app;
 
     this.setupElement();
     this.deletePuppy();
+    this.updatePuppy();
+
 
   }
 
@@ -51,11 +53,39 @@ this.element.querySelector('.profile').value= this.currentPup.profile;
 
   }
 
-    deletePuppy() {
-      this.element.querySelector(`.delete-btn`).addEventListener(`click`, (ev) => {
+  updatePuppy(){
+
+      this.element.querySelector(`.updat-btn`).addEventListener('click', (ev) => {
+        console.log('hellow');
         ev.preventDefault();
-      // console.log(this.app);
-        fetch(`http://tiny-tn.herokuapp.com/collections/mhf-puppies/${this.currentPup._id}`, {
+        fetch(`http://tiny-tn.herokuapp.com/collections/mhf-puppy/${this.currentPup._id}`, {
+        method: `PUT`,
+        headers: {
+          Accept: `application/json`,
+          'Content-Type': `application/json`,
+        },
+        body: JSON.stringify({
+         _id: this.currentPup._id,
+         name: this.element.querySelector(`.name`).value,
+         age: this.element.querySelector(`.age`).value,
+         url: this.element.querySelector(`.url`).value,
+         profile: this.element.querySelector(`.profile`).value,
+       }),
+     }).then((res) => res.json())
+   .then((data) => {
+     this.info = data;
+
+     this.render();
+   });
+   });
+
+  }
+
+    deletePuppy() {
+      this.element.querySelector(`.delete-btn`).addEventListener('click', (ev) => {
+        ev.preventDefault();
+
+        fetch(`http://tiny-tn.herokuapp.com/collections/mhf-puppy/${this.currentPup._id}`, {
           method: `DELETE`,
           body: JSON.stringify(this.element),
         }).then((res) => res.json())
