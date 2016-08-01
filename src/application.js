@@ -38,12 +38,13 @@ const formView = new CreateFormView(this.el);
 
 removePuppy(puppy){
   this.data = this.data.filter((x) => x !== puppy);
-
-
      this.render();
 }
 
 
-
+addPuppyData(puppy){
+  this.data = [puppy, ...this.data];
+  this.render();
+}
 
 }

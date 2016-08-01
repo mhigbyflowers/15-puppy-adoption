@@ -16,7 +16,9 @@ this.app=app;
   setupElement(){
     this.element.classList = ('puppy-list__item');
 
-    this.element.innerHTML = `<div class="card-container">
+    this.element.innerHTML = `
+<form class="pupform">
+    <div class="card-container">
     <div class="card-contianer__inner">
       <div class="card">
         <div class="card__pic-frame">
@@ -35,7 +37,8 @@ this.app=app;
       </div>
     </div>
 
-</div>`;
+</div>
+</form>`;
 
   }
 
@@ -55,9 +58,9 @@ this.element.querySelector('.profile').value= this.currentPup.profile;
 
   updatePuppy(){
 
-      this.element.querySelector(`.updat-btn`).addEventListener('click', (ev) => {
-        console.log('hellow');
+      this.element.querySelector('.pupform').addEventListener('submit', (ev) => {
         ev.preventDefault();
+        console.log('hellow');
         fetch(`http://tiny-tn.herokuapp.com/collections/mhf-puppy/${this.currentPup._id}`, {
         method: `PUT`,
         headers: {
@@ -73,14 +76,15 @@ this.element.querySelector('.profile').value= this.currentPup.profile;
        }),
      }).then((res) => res.json())
    .then((data) => {
-     this.info = data;
-
+    this.curentPup= data;
+alert('puppy has been changed!')
      this.render();
+
    });
    });
 
-  }
-
+ };
+//
     deletePuppy() {
       this.element.querySelector(`.delete-btn`).addEventListener('click', (ev) => {
         ev.preventDefault();
