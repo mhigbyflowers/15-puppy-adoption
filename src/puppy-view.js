@@ -54,7 +54,7 @@ this.element.querySelector('.profile').value= this.currentPup.profile;
     deletePuppy() {
       this.element.querySelector(`.delete-btn`).addEventListener(`click`, (ev) => {
         ev.preventDefault();
-      console.log(this.app);
+      // console.log(this.app);
         fetch(`http://tiny-tn.herokuapp.com/collections/mhf-puppies/${this.currentPup._id}`, {
           method: `DELETE`,
           body: JSON.stringify(this.element),
@@ -65,5 +65,6 @@ this.element.querySelector('.profile').value= this.currentPup.profile;
       });
       });
     }
+
 
 }

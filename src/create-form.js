@@ -9,7 +9,7 @@ this.form();
 
 form(){
     this.el.querySelector('.form-container__inner').addEventListener('submit', (ev) => {
-      // ev.preventDefault();
+      ev.preventDefault();
       const puppyData = {
         name: this.el.querySelector('.top-nav__form-name').value,
         age: this.el.querySelector('.top-nav__form-age').value,
@@ -34,15 +34,12 @@ form(){
           this.el.querySelector('.form-container').classList.toggle('form-container--active');
 
 
+
         });
 
     })
 
   }
 
-  deletePuppy() {
-    this.el.querySelector(`.delete-btn`).addEventListener(`click`, () => {
-    console.log('hello');
-    });
-  }
+
 }
