@@ -1,19 +1,17 @@
-'use strict'
+'use strict';
 export default class PuppyView {
   constructor(currentPup, app) {
-
     this.currentPup = currentPup;
-this.app=app;
+    this.app = app;
     this.element = document.createElement('li');
 
     this.setupElement();
     this.deletePuppy();
     this.updatePuppy();
-
-
+    this.render();
   }
 
-  setupElement(){
+  setupElement() {
     this.element.classList = ('puppy-list__item');
 
     this.element.innerHTML = `
@@ -39,66 +37,58 @@ this.app=app;
 
 </div>
 </form>`;
-
   }
 
   render() {
-
-
-
-this.element.querySelector('.name').value= this.currentPup.name;
-this.element.querySelector('.age').value= this.currentPup.age;
-this.element.querySelector('.url').value= this.currentPup.url;
-this.element.querySelector('.card__pic').src = this.currentPup.url;
-this.element.querySelector('.profile').value= this.currentPup.profile;
+    this.element.querySelector('.name').value = this.currentPup.name;
+    this.element.querySelector('.age').value = this.currentPup.age;
+    this.element.querySelector('.url').value = this.currentPup.url;
+    this.element.querySelector('.card__pic').src = this.currentPup.url;
+    this.element.querySelector('.profile').value = this.currentPup.profile;
 
     // this.el.appendChild(this.element);
-
   }
 
-  updatePuppy(){
-
-      this.element.querySelector('.pupform').addEventListener('submit', (ev) => {
-        ev.preventDefault();
-        console.log('hellow');
-        fetch(`http://tiny-tn.herokuapp.com/collections/mhf-puppy/${this.currentPup._id}`, {
-        method: `PUT`,
+  updatePuppy() {
+    this.element.querySelector('.pupform').addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      console.log('hellow');
+      fetch(`http://tiny-tn.herokuapp.com/collections/mhf-puppy/${this.currentPup._id}`, {
+        method: 'PUT',
         headers: {
-          Accept: `application/json`,
-          'Content-Type': `application/json`,
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-         _id: this.currentPup._id,
-         name: this.element.querySelector(`.name`).value,
-         age: this.element.querySelector(`.age`).value,
-         url: this.element.querySelector(`.url`).value,
-         profile: this.element.querySelector(`.profile`).value,
-       }),
-     }).then((res) => res.json())
-   .then((data) => {
-    this.curentPup= data;
-alert('puppy has been changed!')
-     this.render();
+          _id: this.currentPup._id,
+          name: this.element.querySelector('.name').value,
+          age: this.element.querySelector('.age').value,
+          url: this.element.querySelector('.url').value,
+          profile: this.element.querySelector('.profile').value,
+        }),
+      }).then((res) => res.json())
+          .then((data) => {
+            this.curentPup = data;
+            alert('puppy has been changed!');
+            this.render();
+          });
+    });
+  }
+    //
+  deletePuppy() {
+    this.element.querySelector('.delete-btn').addEventListener('click', (ev) => {
+      ev.preventDefault();
 
-   });
-   });
-
- };
-//
-    deletePuppy() {
-      this.element.querySelector(`.delete-btn`).addEventListener('click', (ev) => {
-        ev.preventDefault();
-
-        fetch(`http://tiny-tn.herokuapp.com/collections/mhf-puppy/${this.currentPup._id}`, {
-          method: `DELETE`,
-          body: JSON.stringify(this.element),
-        }).then((res) => res.json())
-      .then(() => {
-        alert(`Item deleted`);
-        this.app.removePuppy(this.currentPup._id);
-      });
-      });
-    }
+      fetch(`http://tiny-tn.herokuapp.com/collections/mhf-puppy/${this.currentPup._id}`, {
+        method: 'DELETE',
+        body: JSON.stringify(this.element),
+      }).then((res) => res.json())
+        .then(() => {
+          alert('Item deleted');
+          this.app.removePuppy(this.currentPup);
+        });
+    });
+  }
 
 
 }
