@@ -7,7 +7,7 @@ export default class PuppyView {
 
     this.setupElement();
     this.deletePuppy();
-    this.updatePuppy();
+    this.update();
     this.render();
   }
 
@@ -42,17 +42,16 @@ export default class PuppyView {
   render() {
     this.element.querySelector('.name').value = this.currentPup.name;
     this.element.querySelector('.age').value = this.currentPup.age;
-    this.element.querySelector('.url').value = this.currentPup.url;
-    this.element.querySelector('.card__pic').src = this.currentPup.url;
+    this.element.querySelector('.url').value = this.currentPup.photourl;
+    this.element.querySelector('.card__pic').src = this.currentPup.photourl;
     this.element.querySelector('.profile').value = this.currentPup.profile;
 
     // this.el.appendChild(this.element);
   }
 
-  updatePuppy() {
+  update() {
     this.element.querySelector('.pupform').addEventListener('submit', (ev) => {
       ev.preventDefault();
-      console.log('hellow');
       fetch(`http://tiny-tn.herokuapp.com/collections/mhf-puppy/${this.currentPup._id}`, {
         method: 'PUT',
         headers: {
@@ -68,8 +67,9 @@ export default class PuppyView {
         }),
       }).then((res) => res.json())
           .then((data) => {
-            this.curentPup = data;
             alert('puppy has been changed!');
+            // this.app.updatePuppy(data);
+            this.curentPup = data;
             this.render();
           });
     });

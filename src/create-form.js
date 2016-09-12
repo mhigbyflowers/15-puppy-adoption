@@ -11,7 +11,7 @@ export default class CreateFormView {
       const puppyData = {
         name: this.el.querySelector('.top-nav__form-name').value,
         age: this.el.querySelector('.top-nav__form-age').value,
-        url: this.el.querySelector('.top-nav__form-url').value,
+        photourl: this.el.querySelector('.top-nav__form-url').value,
         profile: this.el.querySelector('.top-nav__form-profile').value,
       };
 

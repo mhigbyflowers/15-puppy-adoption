@@ -14,7 +14,7 @@ export default class ApplicationView {
     const components = this.data.map((item) => new PuppyView(item, this));
 
     components.forEach((card) => {
-      this.el.appendChild(card.element);
+      this.el.querySelector('.main-app').appendChild(card.element);
       card.render();
     });
   }
@@ -31,7 +31,6 @@ export default class ApplicationView {
   }
 
   removePuppy(puppy) {
-    console.log(this.data);
     this.data = this.data.filter((x) => x !== puppy);
     this.render();
   }
@@ -39,7 +38,16 @@ export default class ApplicationView {
 
   addPuppyData(puppy) {
     this.data = [puppy, ...this.data];
+    console.log(puppy);
     this.render();
   }
+  // updatePuppy(newPup) {
+  //   this.data = this.data.map((d) => {
+  //     if (d._id === newPup._id) {
+  //       return newPup;
+  //     }
+  //     return d;
+  //   });
+  // }
 
 }
