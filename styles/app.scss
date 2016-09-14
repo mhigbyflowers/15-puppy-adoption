@@ -1,6 +1,75 @@
 // @import 'yoga';
 // @import 'normalize';
 
-// $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
-// @import 'font-awesome';
+$fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
+$orange : #ff9100;
+$grey : #7a7a7a;
+$lightgrey: #e7e2e2;
+@import 'font-awesome';
 @import 'box-sizing';
+@import 'top-nav+form';
+
+
+::selection {
+    color: limegreen;
+    background: black;
+    font-size: 100px;
+    outline: dashed yellow 10px;
+}
+li{
+list-style: none;
+margin: 0;
+}
+.card-container{
+  // background: red;
+
+}
+.card-contianer__inner{
+  padding: 0 1rem;
+  max-width: 60rem;
+  margin: auto;
+
+}
+.card{
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 3px 3px 11px 0px rgba(0,0,0,0.43);
+  display: flex;
+
+  background: $lightgrey;
+&__info{
+  padding:1rem;
+}
+  &__info-item{
+width: 100%;
+background:transparent;
+border: none;
+border-bottom: .1rem black solid;
+font-size: 1.5rem;
+padding:1rem 0;
+color:red;
+  }
+}
+
+.output{
+    border-bottom: .1rem black solid;
+
+}
+.btn-container{
+  display: flex;
+  justify-content: space-between;
+}
+.btn{
+  background: $orange;
+  border: none;
+  font-size: 1.2rem;
+  margin-top:1rem;
+  border-radius: .3rem;
+  color:white;
+  flex-grow: 1;
+      margin: 1rem;
+
+}
+img{
+  width: 100%;
+}
